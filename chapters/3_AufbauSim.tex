@@ -1,0 +1,39 @@
+\chapter{Chapter 1}
+
+
+\section{Section}
+
+A TABLE
+
+\begin{table}[h]
+\centering
+
+\counterwithout{figure}{chapter} 
+\counterwithout{table}{chapter} 
+
+\begin{tabularx}{\textwidth}{|lX|}
+\hline
+\rowcolor{gray!50} \textbf{Methoden Name} & \textbf{Funktion} \\ 
+test & test \\ 
+test \\ \hline
+test & test \\ 
+test & test \\ 
+\hline
+\end{tabularx}
+\caption{A table}
+\label{tab:table1}
+\end{table}
+
+\counterwithout{lstlisting}{chapter} 
+
+\lstset{language=PHP}
+\lstinputlisting[caption={Sourcecode 1}]{sourcecode/test.php}
+
+\counterwithout{figure}{chapter} 
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{images/abt1_webseite.jpg}
+\caption{Figure 1}
+\end{figure}
+
+

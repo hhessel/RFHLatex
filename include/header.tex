@@ -1,0 +1,130 @@
+\documentclass[
+12pt, %Schriftgröße
+twoside=false, %Es wird nur einseitig gedruckt; Alternative: twoside
+titlepage, %Es wird eine Titelseite ausgegeben
+headings=small, %Größe der Kapitelüberschrift; Altern.: nichts/big (größer) bzw. small oder normal
+listof=totoc, %Tabellen- und Abbildungsverzeichnis werden im Inhaltsverzeichnis ausgegeben
+bibliography=totoc, %Literaturverzeichnis wird im Inhaltsverzeichnis ausgegeben
+index=totoc, %Index wird im Inhaltsverzeichnis ausgegeben.
+%chapterprefix, %Vor jedem Kapitel steht 'Kapitel' mit Absatz
+appendixprefix, %Vor jedem Anhang steht 'Anhang' mit Absatz
+%pdftex,
+parskip,
+final,
+numbers=noendperiod
+]{scrreprt}
+
+
+\usepackage[%																							 Das Paket wird für bessere PDF-Ausgabe verwendet
+	pdftitle={Strukturexposee Henrik P. Hessel BWI1102003},%             Titel des PDF Dokuments.
+	pdfauthor={Henrik P. Hessel},%                            Autor des PDF Dokuments.
+	pdfsubject={},%                 Thema des PDF Dokuments.
+	pdfcreator={MiKTeX, LaTeX with hyperref and KOMA-Script},%Erzeuger des PDF Dokuments.
+	pdfkeywords={}%      Schlüsselwörter für das PDF.
+																								 %         (Diese werden von Suchmaschinen
+		%                                                      auch für PDF Dokumente indexiert.)
+	pdfpagemode=UseOutlines,%                                Inhaltsverzeichnis anzeigen beim Öffnen
+	pdfdisplaydoctitle=true,%                                Dokumenttitel statt Dateiname anzeigen.
+	pdflang=de,%  		
+	urlbordercolor={1 1 1},
+	linkbordercolor={1 1 1},
+	citebordercolor={1 1 1},%  
+	plainpages=false,
+	hyperfootnotes=false,
+	bookmarksopenlevel=1,
+	bookmarksopen=true	                                    
+]{hyperref}
+
+\hypersetup{bookmarksnumbered=true}
+
+\usepackage[paper=a4paper,left=3.5cm,right=2.5cm,top=3cm,bottom=2.0cm]{geometry}
+\usepackage[ngerman]{babel} % Spracheinstellung: Deutsch
+\usepackage[T1]{fontenc} % Für Sonderzeichen u.a.
+\usepackage[utf8]{inputenc} % Direkte Eingabe der Umlaute
+
+\usepackage{mathptmx}            % für Schrift mit Serifen
+\usepackage[scaled=.90]{helvet}  % für Schrift ohne Serifen
+\usepackage{courier}             % für Schrift mit konstanter Breite
+\usepackage{chngcntr}
+\usepackage{url}
+\usepackage{tocloft}
+\usepackage{acronym}
+\usepackage[autostyle]{csquotes}
+\usepackage{tabularx}
+\usepackage[table]{xcolor}
+\rowcolors{2}{gray!25}{white}
+\usepackage{listings}
+\usepackage{graphicx}
+
+\definecolor{lightgrey}{rgb}{0.9,0.9,0.9}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+
+\lstset{language=[LaTeX]TeX,
+texcsstyle=*\bf\color{blue},
+numbers=none,
+breaklines=true,
+keywordstyle=\color{darkgreen},
+commentstyle=\color{red},
+otherkeywords={$, \{, \}, \[, \]},
+frame=none,
+tabsize=2,
+backgroundcolor=\color{lightgrey},
+basicstyle=\ttfamily\scriptsize,
+showstringspaces=false}
+
+\renewcommand{\lstlistlistingname}{Verzeichnis der Quellcodes}
+\renewcommand{\lstlistingname}{Quellcode}
+
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{2}
+
+\usepackage{scrpage2} 
+\cfoot[]{} 
+\ofoot[\pagemark]{\pagemark} 
+
+
+\usepackage[
+    backend=biber,
+    style=authoryear-icomp,
+    sortlocale=de_DE,
+    natbib=true,
+    url=false, 
+    doi=true,
+    eprint=false
+]{biblatex}
+
+
+%  TOC
+
+
+%
+%			Zeilenhöhe einstellen
+%
+\usepackage{setspace}
+
+\setstretch{1,5} %Nur einschalten, wenn 1,5 Abstand von Word verlangt wird !!! Wird in der titlepage auf 1,5 gesetzt !!!
+\onehalfspacing
+\setlength{\headheight}{1.1\baselineskip}
+%
+%			Absatzhöhe einstellen
+%
+\parindent 0pt %Kein Einzug am Zeilenanfang von neuem Absatz
+% \setlength\parskip{2ex} %Wenn \\ eingegeben wird, wird Abstand von 2x erzeugt
+\renewcommand{\\}{\par} %Anstatt \par geht auch \\
+
+\counterwithout{footnote}{chapter}
+
+\makeatletter 
+\g@addto@macro\UrlBreaks{ 
+  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j 
+  \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t 
+  \do\u\do\v\do\w\do\x\do\y\do\z\do\&\do\1\do\2\do\3 
+  \do\4\do\5\do\6\do\7\do\8\do\9\do\0} 
+% \def\do@url@hyp{\do\-} 
+\makeatother 
+
+
+\tolerance=2000 %Damit die Zeilen nicht überstehen -> emergencystretch
+\setlength{\emergencystretch}{20pt}
+
+\makeindex

@@ -1,0 +1,40 @@
+\section{HTTP}
+Das Hypertext Transfer Protokoll, kurz HTTP, wird hauptsächlich benutzt um Webseiten über ein Netzwerk zu laden. Ein erster Entwurf des HTTP/1.0 Protokolls wurde 1996 von den Wissenschaftlern
+Roy Fielding, Tim Berners-Lee und Anderen im CERN Institut als RFC 1945\footcite{BERNERS-LEE:RFC1945:Online} herausgegeben. Im Jahr 1999 folgte der RFC 2616\footcite{FIELDING:RFC2616:Online}, der die überarbeitete Version HTTP/1.1 beinhaltete.
+
+
+Die Basis für die Kommunikation über HTTP ist die Notwendigkeit eines Servers und eines Client vorausgesetzt. Zwischen Server und Client werden
+Nachrichten gesendet, die auf Clientseite Request heißen und auf Server Seite Response. Jede Nachricht besitzt ein Header und einen Body. Im Header
+werden zusätzliche Informationen über die eigentlich Nachricht gespeichert, während der Body die eigentlichen Daten beinhaltet. Um einen Request zu erstellen muss eine von sieben
+Request Methoden deklariert werden. 
+
+
+
+In der HTTP/1.0 Protokoll Version werden Verbindung standardmäßig nach einer Response geschlossen. Im Gegensatz dazu kann man in der Version HTTP/1.1
+ein s.g. Keep-Alive Flag setzen, welches es erlaubt die bestehende Verbindung nicht zu schließen und wieder zuverwenden. Dies erspart den Overhead
+neue HTTP Nachrichten zu erstellen und spart entsprechend Ressourcen auf dem Server System. Mit Hilfe dieses optionalen Parameters wird die HTTP Verbindung
+persistent. Das 1.1 Protokoll besitzt zudem die Möglichkeit mehrere Verbindungen zu bündeln (s.g. Pipelining). Mittels dieser Funktion
+können z.B. Anfragen für unterschiedliche Ressourcen über dieselbe TCP/IP Verbindung übermittelt werden. Auch abgebrochene Verbindung können
+in der neueren Version des Protokolls wieder aufgenommen werden. 
+
+Die genannten Vorteile der Protokoll Version HTTP/1.1 spielen bei der späteren Simulation eine wichtige Rolle.
+
+Ein typischer HTTP 1.1 Header stellt sich wie folgt dar:
+
+\counterwithout{figure}{chapter} 
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{images/abt1_http_header.jpg}
+\caption{HTTP Request Header}
+\end{figure}
+
+Die bereits angesprochenen Flags, wie z.B. das Keep-Alive Flag werden gesetzt. Zusätzlich werden weitere Meta-Informationen über das Client System mitgeschickt. 
+
+Die entsprechende Response auf das o.g. Request stellt sich wie folgt dar
+
+\counterwithout{figure}{chapter} 
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{images/abt2_http_header.jpg}
+\caption{HTTP Response Header}
+\end{figure}
